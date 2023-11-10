@@ -1,5 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
+
+
 
 function Cards({ Cards, setRecetas }) {
   const deleteCard = (id) => {
@@ -10,20 +12,22 @@ function Cards({ Cards, setRecetas }) {
   const cardGridStyle = {
     display: 'grid',
     gridTemplateColumns: 'repeat(3, 1fr)',
-    gap: '16px',
+    gap: '16px', 
     margin: '50px',
     justifyContent: 'center',
   };
 
   const cardStyle = {
     textAlign: 'center',
+    width: '300px',
+    margin: '40px', 
   };
 
   const imageStyle = {
-    width: '100%', // Asegura que la imagen ocupa el 100% del contenedor
-    height: 'auto', // Permite que la altura se ajuste proporcionalmente para mantener la relación de aspecto
-    maxWidth: '100%', // Garantiza que la imagen no se extienda más allá de su tamaño original
-    maxHeight: '150px', // Establece una altura máxima para las imágenes
+    width: '100%',
+    height: '150px',
+    objectFit: 'cover',
+    maxWidth: '100%',
   };
 
   return (
@@ -32,7 +36,7 @@ function Cards({ Cards, setRecetas }) {
         <div key={alimento.id} style={cardStyle}>
           <img src={alimento.imagen} alt={alimento.title} style={imageStyle} />
           <h2>{alimento.title}</h2>
-          <p>Preparación: {alimento.preparacion}</p>
+          <p>Preparación: {alimento.preparación}</p>
           <button onClick={() => deleteCard(alimento.id)}>Eliminar</button>
         </div>
       ))}
